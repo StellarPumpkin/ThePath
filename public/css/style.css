@@ -1,0 +1,46 @@
+#body {
+  background-image: url(/images/thepath.png);
+  background-size: 1200px;
+  background-color: beige;
+}
+
+#milestone{
+  position: absolute;
+  display: none;
+  color: transparent;
+}
+
+#milestone1{
+position: absolute;
+float: right;
+right: 250px;
+width: 200px;
+height: 100px;
+display: none;
+}
+
+#form, #form1{
+  position: absolute;
+  width: 15em;
+  margin: 10em;
+  padding: 2em;
+  display: inline-block;
+}
+
+#form1{
+  float: right;
+  left: 700px;
+}
+
+.hoscroll {
+  white-space: nowrap;
+}
+
+img.lazy {
+  width: 150em; 
+  height: 0em; 
+  display: inline-block;
+  color: transparent;
+  
+} 
+

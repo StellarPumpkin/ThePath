@@ -1,0 +1,35 @@
+<% include ./partials/header%>
+<% include ./partials/navbar%>
+<body id = "body" >
+ <form action="/path/<%=pathId%>" method="post">
+ <input type='text' placeholder='Your milestone' name='Body'>
+ <input class="btn btn-primary" type="submit" value="Set a milestone"/>
+ </form>
+        <div>
+        <% if (locals.path !== undefined) { %>
+           <h1> Your path :  <%=path%> </h1>
+       <% } %>
+        
+        <% if (locals.myMilestone !== undefined) { %>
+       <% } %>
+
+        <% if (milestones) { %>
+            <% milestones.forEach( (milestone) => { %>
+                <li>
+                    <%= milestone.Body %>
+                </li>
+            <%})%>
+        <% } %>
+        </div> 
+       <div class="hoscroll">
+        <img class="lazy" src="/images/thepath.png" />
+</div>
+   </body>
+
+<% include ./partials/footer%>
+
+
+
+
+
+

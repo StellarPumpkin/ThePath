@@ -1,0 +1,9 @@
+<% include ./partials/header%>
+<% include ./partials/offlinenavbar%>
+<form action="/login" method="post">
+<input type="text" placeholder="Enter Username" name="username" required>
+<input type="password" placeholder="Enter Password" name="password" required>
+<button type="submit">Login</button>
+<input type="checkbox" checked="checked" name="remember"> Remember me
+</form>
+<% include ./partials/footer%>

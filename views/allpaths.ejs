@@ -1,0 +1,11 @@
+<% include ./partials/header%>
+<% include ./partials/navbar%>
+<ul>
+            <% allTimelines.forEach( (timeline) => { %>
+            <li>
+                <a href="/path/<%= timeline.dataValues.id %>"> <%= timeline.dataValues.Goal %></a> 
+            </li>
+
+            <%})%>
+        </ul>
+<% include ./partials/footer%>
