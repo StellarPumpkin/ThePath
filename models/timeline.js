@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const Milestone = require('./milestone.js');
 
-const connection = new Sequelize('thepath', 'Elena', 'BardYlvisaker', {
+const connection = new Sequelize('thepath', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false
