@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 const Timeline = require('./timeline.js');
 
-const connection = new Sequelize('thepath', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+const connection = new Sequelize('thepath', 'Elena', 'BardYlvisaker', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false

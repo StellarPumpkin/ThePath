@@ -1,35 +1,54 @@
 <% include ./partials/header%>
 <% include ./partials/navbar%>
-<body id = "body" >
- <form action="/path/<%=pathId%>" method="post">
- <input type='text' placeholder='Your milestone' name='Body'>
- <input class="btn btn-primary" type="submit" value="Set a milestone"/>
- </form>
-        <div>
+
+<body id="body">
+    <form action="/path/<%=pathId%>" method="post">
+        <input type='text' placeholder='Your milestone' name='Body'>
+        <input class="btn btn-primary" type="submit" value="Set a milestone" />
+    </form>
+    <div>
         <% if (locals.path !== undefined) { %>
-           <h1> Your path :  <%=path%> </h1>
-       <% } %>
-        
+        <h1> Your path :
+            <%=path%>
+        </h1>
+        <% } %>
+
         <% if (locals.myMilestone !== undefined) { %>
-       <% } %>
+        <% } %>
 
         <% if (milestones) { %>
-            <% milestones.forEach( (milestone) => { %>
-                <li>
-                    <%= milestone.Body %>
-                </li>
-            <%})%>
+        <% milestones.forEach( (milestone) => { %>
+        <li>
+
+            <button class="open-button" onclick="openForm()">
+                <%= milestone.Body %></button>
+        </li>
+        <div class="form-popup" id="myForm">
+            <form action="/log" class="form-container" method="post">
+                <input type="text" id="input" placeholder="How do you want to memorize this achivement?" name="completiontext"
+                    required>
+                <input type="submit"  value="Submit" class="btn">
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+        <%})%>
         <% } %>
-        </div> 
-       <div class="hoscroll">
+
+
+    </div>
+    <div class="hoscroll">
         <img class="lazy" src="/images/thepath.png" />
-</div>
-   </body>
+    </div>
+</body>
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
 
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    console.log(document.getElementById("input").innerHTML);
+</script>
 <% include ./partials/footer%>
-
-
-
-
-
-

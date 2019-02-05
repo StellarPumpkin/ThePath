@@ -1,17 +1,20 @@
 const Sequelize = require('sequelize');
 //const Timeline = require('./timeline.js');
 
-const connection = new Sequelize('thepath', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+const connection = new Sequelize('thepath', 'Elena', 'BardYlvisaker', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false
 });
 //Define the model
 const Milestone = connection.define('milestone', {
-    Body: Sequelize.TEXT
-    //Status: Sequelize.BOOLEAN, 
-    //Completiontext: Sequelize.TEXT,
-    //Order_number: Sequelize.INTEGER
+    Body: Sequelize.TEXT,
+    Complete: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      }, 
+    Completiontext: Sequelize.TEXT,
+    
 });
 //Milestone.belongsTo(Timeline);
 

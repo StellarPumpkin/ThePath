@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const connection = new Sequelize('thepath', process.env.POSTGRES_USER, process.env.POSTGRES_PASSWORD, {
+const connection = new Sequelize('thepath', 'Elena', 'BardYlvisaker', {
     host: 'localhost',
     dialect: 'postgres',
     operatorsAliases: false
@@ -20,3 +20,6 @@ connection.sync()
     .catch((error) => console.log(`couldn't create a table, here is the error: ${error.stack}`));
 
     module.exports = Log;
+
+
+    <input type="hidden" value="<%= milestoneId%>"/>

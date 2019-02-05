@@ -197,35 +197,72 @@ app.get('/path/:id', (req, res) => {
     })
 
 })
+app.route('/path/:id')
+    .post((req, res) => {
+        if (!req.session.user && !req.cookies.pathCookie) {
+            res.redirect('/login');
+        }
+        let id = req.params.id;
 
-app.post('/path/:id', (req, res) => {
-    if (!req.session.user && !req.cookies.pathCookie) {
-        res.redirect('/login');
-    }
-
-    let id = req.params.id;
-
-    Milestone.create({
-        Body: req.body.Body,
-        timelineId: id
-    }).then(() => {
-        Milestone.findAll({
-            where: {
-                timelineId: id
-            }
-        }).then((retrievedMilestones) => {
-            res.render('path', {
-                path: req.session.user.Goal,
-                pathId: id,
-                milestones: retrievedMilestones
+        Milestone.create({
+            Body: req.body.Body,
+            timelineId: id
+        }).then(() => {
+            Milestone.findAll({
+                where: {
+                    timelineId: id
+                }
+            }).then((retrievedMilestones) => {
+                res.render('path', {
+                    path: req.session.user.Goal,
+                    pathId: id,
+                    milestones: retrievedMilestones
+                })
             })
+
+
+        }).catch((error) => {
+            console.log(`Something went wrong when reading with findAll(): ${error.stack}`)
+        })
     })
 
-    
-    }),(error) => {
-        console.log(`Something went wrong when reading with findAll(): ${error.stack}`)
-    }
-})
+app.post('/log', (req, res) => {
+        if (!req.session.user && !req.cookies.pathCookie) {
+            res.redirect('/login');
+        }
+        console.log('The request from hidden form >',req)
+        console.log(app.locals)
+        var userInputId = JSON.parse(JSON.stringify(req.session)).user.id;
+
+/*         Timeline.findAll({ where: {userId: userInputId} }).then((retrievedPath) => {
+            console.log(retrievedPath)
+        }) */
+
+        let hiddenId = req.params.id;
+        console.log('The hidden value',hiddenId)
+        
+
+        // // Milestone.findById(hiddenId)
+        // // .then((retrivedComplete) => {
+        // //     console.log(retrivedComplete)
+        // //     retrivedComplete.update({
+        // //         Completiontext: req.body.Completiontext,
+        // //         complete: true
+        // //     }).then((retrivedText) => {
+        // //         console.log(retrivedText)
+        // //         res.render('path', {
+        // //             path: req.session.user.Goal,
+        // //             pathId: id,
+        // //             completeText: retrivedText,
+        // //             milestones: retrievedMilestones
+        // //         })
+        // //     })
+        // }).catch((error) => {
+        //     console.log(`Something went wrong when reading with findAll(): ${error.stack}`)
+        // })
+    })
+
+
 
 
 
