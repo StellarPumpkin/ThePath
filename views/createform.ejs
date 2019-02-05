@@ -1,0 +1,21 @@
+<% include ./partials/header%>
+<% include ./partials/navbar%>
+
+<div class="container row">
+    <div class="jumbotron col-sm-4 pull-center">
+        <form action="/create" method="post">
+            <h2>This is where your Path begins </h2>
+            <div>
+                <label>What is in the end of your Path?</label>
+                <br>
+                <input type="text" name="Goal" />
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Follow The Path" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<% include ./partials/footer%>
