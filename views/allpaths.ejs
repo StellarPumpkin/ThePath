@@ -2,7 +2,7 @@
 <% include ./partials/navbar%>
 <ul>
             <% allTimelines.forEach( (timeline) => { %>
-            <li>
+            <li id="paths">
                 <a href="/path/<%= timeline.dataValues.id %>"> <%= timeline.dataValues.Goal %></a> 
             </li>
 

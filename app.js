@@ -3,8 +3,8 @@ const express = require('express'),
     path = require('path'),
     app = express(),
     cookieParser = require('cookie-parser'),
-    cookieSession = require('express-session');
-Timeline = require('./models/timeline.js'),
+    cookieSession = require('express-session'),
+    Timeline = require('./models/timeline.js'),
     Milestone = require('./models/milestone.js'),
     User = require('./models/users.js');
 
@@ -40,8 +40,6 @@ let checkLoggedIn = (req, res, next) => {
 app.get('/', checkLoggedIn, (req, res) => {
     res.redirect('/login');
 });
-
-
 
 app.route('/register')
     .get(checkLoggedIn, (req, res) => {
@@ -202,6 +200,8 @@ app.post('/path/:id', (req, res) => {
     if (!req.session.user && !req.cookies.pathCookie) {
         res.redirect('/login');
     }
+
+    console.log('This is the request from client side:', req.body);
 
     let id = req.params.id;
 
