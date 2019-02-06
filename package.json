@@ -1,5 +1,5 @@
 {
-  "name": "the-path",
+  "name": "groupproject",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -9,8 +9,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
-    "sequelize": "^4.42.0"
+    "express-session": "^1.15.6",
+    "nodemon": "^1.18.9",
+    "pg": "^7.8.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^4.42.0",
+    "sequelize-file": "^0.3.0",
+    "session": "^0.1.0"
   }
 }

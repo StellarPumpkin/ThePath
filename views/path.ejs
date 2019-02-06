@@ -1,0 +1,237 @@
+<% include ./partials/header%>
+<% include ./partials/navbar%>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/style/style.css"/>
+</head>
+
+<body id = "body" background="/views/images/thepath.png">
+
+<div class="hoscroll">
+        <img class="lazy" data-src="images/Untitled-1.png" />
+</div>
+<div >
+    <% if (locals.path !== undefined) { %>
+    <marquee behavior="alternate"><span class="marquee"> <i>Your path :  <%=path%></i></span></marquee>
+    <% } %>
+        
+    <% if (locals.myMilestone !== undefined) { %>
+    <% } %>
+
+    <% if (milestones) { %>
+        <% milestones.forEach( (milestone) => { %>
+        <ol>
+            <li id= "milestoned">
+            <%= milestone.Body %>
+            </li>
+        </ol>
+        <%})%>
+    <% } %>
+</div> 
+
+<form action="/path/<%=pathId%>" method="post">
+    <input id="inputForm" type='text' placeholder='Your milestone' name='Body'>
+    <input id="sad" class="btn btn-primary" id="setmm" type="submit" value="Set a milestone"/>
+    <button type="button" id="addm" >Add milestone</button>
+</form>
+
+<div class="milestones">
+    <ul id= "mile" style="list-style-type:none;">
+        <li><input id= "milestone" type="image" src="/images/milestone.png" style="width:10em;height:7em;line-height: 5em"></li>
+        <li><input id= "milestone1" type="image" src="/images/milestone1.png" style="width:15em;height:19em"></li>
+        <li><input id= "milestone2" type="image" src="/images/milestone2.png" style="width:20em;height:25em"></li>
+        <li><input id= "milestone3" type="image" src="/images/milestone3.png" style="width:12em;height:15em"></li>
+        <li><input id= "milestone4" type="image" src="/images/milestone4.png" style="width:12em;height:15em"></li>
+        <li><input id= "milestone5" type="image" src="/images/milestone5.png" style="width:20em;height:25em"></li>
+        <li><input id= "milestone6" type="image" src="/images/milestone6.png" style="width:15em;height:20em"></li>
+        <li><input id= "milestone7" type="image" src="/images/milestone7.png" style="width:30em;height:30em"></li>
+    </ul>
+</div>
+    
+    
+<div class="forms">
+
+<div class="form">
+    <button id="close" style="float: right;">X</button>
+    <form  id>
+        <textarea id= "txt">Write something about this step. .  .</textarea>
+        <br>
+        <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+        <br>
+        Add a relevant link: <input type="url" name="link">
+        <br>
+        <br>
+        <button type="button" id="saveall">Save all</button>
+    </form>
+</div>
+    
+<div class="form1">
+        <button id="close1" style="float: right;">X</button>
+        <form  id>
+            <textarea id= "txt1">Write something about this step. .  .</textarea>
+            <br>
+            <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+            <br>
+            Add a relevant link: <input type="url" name="link">
+            <br>
+            <br>
+            <button type="button" id="saveall1">Save all</button>
+        </form>
+</div>
+
+<div class="form2">
+        <button id="close2" style="float: right;">X</button>
+        <form  id>
+            <textarea id= "txt2">Write something about this step. .  .</textarea>
+            <br>
+            <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+            <br>
+            Add a relevant link: <input type="url" name="link">
+            <br>
+            <br>
+            <button type="button" id="saveall2">Save all</button>
+        </form>
+</div>
+
+<div class="form3">
+        <button id="close3" style="float: right;">X</button>
+        <form  id>
+            <textarea id= "txt3">Write something about this step. .  .</textarea>
+            <br>
+            <input type="file" name="fileupload" value="fileupload" id="fileupload"> 
+            <br>
+            Add a relevant link: <input type="url" name="link">
+            <br>
+            <br>
+            <button type="button" id="saveall3">Save all</button>
+        </form>
+</div>
+
+</div>
+</body>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+    
+    //appearance of the first milestones
+        $('#addm').click(function(){
+            $('#milestone').fadeIn(2000);
+        });
+    
+    //appear form action
+        $('#milestone').click(function(){
+            $(".form").slideDown();
+        });
+
+        $('#close').on('click', function () {
+        $('.form').hide();
+        });
+        
+        $('#saveall').click(function(){
+            $('.form').hide();
+            $('#milestone1').fadeIn(2000);
+        });
+    //continuation of the action...
+        $('#milestone1').click(function(){
+            $(".form1").slideDown();
+        });  
+
+        $('#close1').on('click', function () {
+        $('.form1').hide();
+        });
+
+        $('#saveall1').click(function(){
+            $('.form1').hide();
+            $('#milestone2').fadeIn(2000);
+        });
+    //continuation of the action...
+        $('#milestone2').click(function(){
+            $(".form2").slideDown();
+        });  
+        
+        $('#close2').on('click', function () {
+        $('.form2').hide();
+        });
+
+        $('#saveall2').click(function(){
+            $('.form2').hide();
+            $('#milestone3').fadeIn(2000);
+        });
+    //continuation of the action...
+        $('#milestone3').click(function(){
+        $(".form3").slideDown();
+        });  
+        
+        $('#close3').on('click', function () {
+        $('.form3').hide();
+        });
+
+        $('#saveall3').click(function(){
+            $('.form3').hide();
+            $('#milestone4').fadeIn(2000);
+        });
+    //continuation
+    $('#milestone4').click(function(){
+        $(".form4").slideDown();
+        });  
+        
+        $('#close4').on('click', function () {
+        $('.form4').hide();
+        });
+
+        $('#saveall4').click(function(){
+            $('.form4').hide();
+            $('#milestone5').fadeIn(2000);
+        });
+    //MOREE
+        $('#milestone5').click(function(){
+        $(".form5").slideDown();
+        });  
+        
+        $('#close5').on('click', function () {
+        $('.form5').hide();
+        });
+
+        $('#saveall5').click(function(){
+            $('.form5').hide();
+            $('#milestone6').fadeIn(2000);
+        });
+    //moremroemroe
+
+    $('#milestone6').click(function(){
+        $(".form6").slideDown();
+        });  
+        
+        $('#close6').on('click', function () {
+        $('.form6').hide();
+        });
+
+        $('#saveall6').click(function(){
+            $('.form6').hide();
+            $('#milestone7').fadeIn(2000);
+        });
+    //last
+    $('#milestone7').click(function(){
+        $(".form7").slideDown();
+        });  
+        
+        $('#close7').on('click', function () {
+        $('.form7').hide();
+        });
+
+        $('#saveall7').click(function(){
+            $('.form7').hide();
+        });
+
+
+    });
+</script>
+
+<% include ./partials/footer%>
+
+
+
+
+
+
